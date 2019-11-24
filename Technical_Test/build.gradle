@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.55")
+    }
+}
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+}
+
+group 'Technical-Test'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+repositories {
+    mavenCentral()
+    jcenter()
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply from: "$rootDir/libraries.gradle"
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    runtime("org.postgresql:postgresql:42.1.4")
+    implementation libs.slf4jApi
+    implementation libs.Kotlin
+    testCompile libs.test.serenity.core,
+            libs.test.serenity.screenplay,
+            libs.test.serenity.junit,
+            libs.test.serenity.screenplayWebdriver,
+            libs.test.serenity.cucumber,
+            libs.test.serenity.restAssured,
+            libs.test.jsonSchema,
+            libs.test.jsonPath,
+            libs.test.hamcrest,
+            libs.test.junit,
+            libs.test.assertj
+    libs.test.gson
+}
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)

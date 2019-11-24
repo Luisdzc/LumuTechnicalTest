@@ -1,0 +1,32 @@
+ext{
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '2.0.55'
+    serenityCucumberVersion = '1.9.39'
+    serenityRestAssuredVersion = '2.0.56'
+    junitVersion ='4.12'
+    assertJVersion ='3.8.0'
+    jsonSchemaRestAssured = '3.1.0'
+    jsonPath = '2.4.0'
+    hamcrest = '1.3'
+    gson = '2.8.5'
+    libs = [
+            slf4jApi: "org.slf4j:slf4j-api:$slf4jVersion",
+            Kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+            test: [
+                    serenity: [
+                            core: "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+                            junit: "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
+                            screenplay: "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+                            screenplayWebdriver: "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+                            cucumber: "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
+                            restAssured: "net.serenity-bdd:serenity-rest-assured:${serenityRestAssuredVersion}",
+                    ],
+                    gson: "com.google.code.gson:gson:$gson",
+                    junit: "junit:junit:${junitVersion}",
+                    hamcrest: "org.hamcrest:hamcrest-all:${hamcrest}",
+                    jsonSchema: "io.rest-assured:json-schema-validator:${jsonSchemaRestAssured}",
+                    jsonPath: "com.jayway.jsonpath:json-path:${jsonPath}",
+                    assertj: "org.assertj:assertj-core:${assertJVersion}"
+            ]
+    ]
+}
