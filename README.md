@@ -15,5 +15,5 @@ Test repository for Lumu technical test
 ### Run project ###
 * Run test suit in console: gradle --rerun-tasks
 * Run test suit in IDE: Execute TestRunner in src/test/kotlin/runner
-* Run algorithm: Execute Main.kt file in src/main/kotlin/counter
+* Run algorithm: Execute Main.kt file in src/main/kotlin/counter, put the text that you want to process in the                               src/main/resources/ArchivoPrueba.txt
 
